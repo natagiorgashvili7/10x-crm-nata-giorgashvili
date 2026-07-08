@@ -1,0 +1,123 @@
+.sign_up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+}
+.sign_up .sign_up_section {
+  width: 100%;
+  max-width: 420px;
+  min-height: 50vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+}
+.sign_up .sign_up_section .sign_up_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sign_up .sign_up_section .sign_up_info h3, .sign_up .sign_up_section .sign_up_info p {
+  margin: 0;
+}
+.sign_up .sign_up_section .sign_up_info .sign_up_title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+}
+.sign_up .sign_up_section .sign_up_info p {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+.sign_up .sign_up_section .sign_up_info p a {
+  text-decoration: none;
+  color: #2563eb;
+}
+.sign_up .sign_up_section .sign_up_form {
+  width: 100%;
+}
+.sign_up .sign_up_section .sign_up_form .each_form_input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.sign_up .sign_up_section .sign_up_form .each_form_input label {
+  font-family: "Josefin Sans", sans-serif;
+  margin-bottom: 3px;
+  font-weight: 600;
+  color: #334155;
+  text-align: left;
+}
+.sign_up .sign_up_section .sign_up_form .each_form_input input {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 12px;
+  outline: none;
+  transition: 0.3s;
+}
+.sign_up .sign_up_section .sign_up_form .each_form_input input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+.sign_up .sign_up_section .sign_up_form .each_form_input input.input-error {
+  border: 2px solid #ef4444 !important;
+}
+.sign_up .sign_up_section .sign_up_form .each_form_input .error-text {
+  margin-top: 5px;
+  color: #ef4444;
+  font-size: 13px;
+  display: none;
+}
+.sign_up .sign_up_section .sign_up_form .each_form_input .error-text.visible {
+  display: block;
+}
+.sign_up .sign_up_section .sign_up_form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.sign_up .sign_up_section .sign_up_form button:hover {
+  background: #1d4ed8;
+}
+
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+#toast-container .toast {
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+#toast-container .toast.success {
+  background: #22c55e;
+}
+#toast-container .toast.error {
+  background: #ef4444;
+}
+
+/*# sourceMappingURL=style.css.map */

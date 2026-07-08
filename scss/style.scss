@@ -1,0 +1,152 @@
+// Variables
+$color-primary: #2563eb;
+$color-primary-dark: #1d4ed8;
+$color-error: #ef4444;
+$color-success: #22c55e;
+$color-border: #d1d5db;
+$color-label: #334155;
+$font-main: "Josefin Sans", sans-serif;
+
+// full sign up styles
+.sign_up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+
+    .sign_up_section {
+        width: 100%;
+        max-width: 420px;
+        min-height: 50vh;
+        padding: 2rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        background-color: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        gap: 20px;
+        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+
+        .sign_up_info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            h3, p {
+                margin: 0;
+            }
+
+            .sign_up_title {
+                font-family: $font-main;
+                font-size: 30px;
+                font-weight: 800;
+            }
+
+            p {
+                font-family: $font-main;
+                font-size: 15px;
+                font-weight: 500;
+
+                a {
+                    text-decoration: none;
+                    color: $color-primary;
+                }
+            }
+        }
+
+        .sign_up_form {
+            width: 100%;
+
+            .each_form_input {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1rem;
+
+                label {
+                    font-family: $font-main;
+                    margin-bottom: 3px;
+                    font-weight: 600;
+                    color: $color-label;
+                    text-align: left;
+                }
+
+                input {
+                    padding: 10px;
+                    border: 1px solid $color-border;
+                    border-radius: 10px;
+                    font-size: 12px;
+                    outline: none;
+                    transition: .3s;
+
+                    &:focus {
+                        border-color: $color-primary;
+                        box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+                    }
+
+                    &.input-error {
+                        border: 2px solid $color-error !important;
+                    }
+                }
+
+                .error-text {
+                    margin-top: 5px;
+                    color: $color-error;
+                    font-size: 13px;
+                    display: none;
+
+                    &.visible {
+                        display: block;
+                    }
+                }
+            }
+
+            button {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                border-radius: 10px;
+                background: $color-primary;
+                color: white;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: .3s;
+
+                &:hover {
+                    background: $color-primary-dark;
+                }
+            }
+        }
+    }
+}
+
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+
+    .toast {
+        padding: 12px 20px;
+        border-radius: 8px;
+        color: white;
+        font-family: $font-main;
+        font-weight: 600;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+        &.success {
+            background: $color-success;
+        }
+
+        &.error {
+            background: $color-error;
+        }
+    }
+}
