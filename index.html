@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body class="sign_up">
+     <script src="js/guard.js"></script>
 <!-- this is form for log in -->
     <section class="sign_up_section">
         <div class="sign_up_info">
@@ -19,21 +20,20 @@
 
         <div id="toast-container"></div>
 <!-- this section is about form validation and input for people, who have an account -->
-        <form class="sign_up_form" id="signupForm" novalidate>
+        <form class="sign_up_form" id="loginForm" novalidate>
             <div class="each_form_input">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="john.doe@gmail.com">
-                <small class="error-text" id="emailError"></small>
+                <label for="loginEmail">Email</label>
+                <input type="text" id="loginEmail" name="email" placeholder="john.doe@gmail.com">
+                <small class="error-text" id="loginEmailError"></small>
             </div>
             <div class="each_form_input">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="********">
-                <small class="error-text" id="passwordError"></small>
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="password" placeholder="********">
+                <small class="error-text" id="loginPasswordError"></small>
             </div>
             <button type="submit">Log In</button>
         </form>
     </section>
-
-    <script src="js/guard.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>
