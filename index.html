@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOG IN</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body class="sign_up">
+<!-- this is form for log in -->
+    <section class="sign_up_section">
+        <div class="sign_up_info">
+            <h3 class="sign_up_title">Welcome back</h3>
+            <p>Don't have an account?<a href="signup.html">Sign Up</a></p>
+        </div>
+
+        <div id="toast-container"></div>
+<!-- this section is about form validation and input for people, who have an account -->
+        <form class="sign_up_form" id="signupForm" novalidate>
+            <div class="each_form_input">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="john.doe@gmail.com">
+                <small class="error-text" id="emailError"></small>
+            </div>
+            <div class="each_form_input">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="********">
+                <small class="error-text" id="passwordError"></small>
+            </div>
+            <button type="submit">Log In</button>
+        </form>
+    </section>
+
+    <script src="js/guard.js"></script>
+</body>
+</html>
