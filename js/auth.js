@@ -51,10 +51,10 @@ function handleSignup (form) {
     }
 
     if (!isValid) {
-        return; // stop here — nothing gets saved, form isn't submitted
+        return; // form isn't submitted
     }
 
-    // --- All valid: build User object and save ---
+    // All valid: build User object and save
     const newUser = {
         id: Date.now(),
         fullName: fullName.trim(),
