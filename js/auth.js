@@ -1,11 +1,14 @@
-// form validation
+// ===== Signup form logic =====
+
 const signupForm = document.getElementById('signupForm');
+
 if (signupForm) {
     signupForm.addEventListener('submit', handleSignup);
 }
-function handleSignup (form) {
-    form.preventDefault();
-// values for form validation
+
+function handleSignup(e) {
+    e.preventDefault();
+
     const fullName = document.getElementById('fullName').value;
     const email = document.getElementById('email').value;
     const company = document.getElementById('company').value;
@@ -23,19 +26,19 @@ function handleSignup (form) {
     if (fullName.trim().length < 3) {
         showError('fullName', 'Full name must be at least 3 characters');
         isValid = false;
-    } if (!emailPattern.test(emailValue)){
+    }
+
+    if (!emailPattern.test(emailValue)) {
         showError('email', 'Please enter a valid email address');
         isValid = false;
-
     } else {
-        // Email duplicate check
         const users = getUsers();
         const emailExists = users.some(u => u.email === emailValue);
         if (emailExists) {
             showError('email', 'An account with this email already exists');
             isValid = false;
+        }
     }
-}
 
     const hasLetter = /[a-zA-Z]/.test(password);
     const hasDigit = /[0-9]/.test(password);
@@ -44,17 +47,15 @@ function handleSignup (form) {
         isValid = false;
     }
 
-    // Confirm Password: must match exactly
     if (confirmPassword !== password) {
         showError('confirmPassword', 'Passwords do not match');
         isValid = false;
     }
 
     if (!isValid) {
-        return; // form isn't submitted
+        return;
     }
 
-    // All valid: build User object and save
     const newUser = {
         id: Date.now(),
         fullName: fullName.trim(),
@@ -75,7 +76,62 @@ function handleSignup (form) {
     }, 1500);
 }
 
-// ===== Helpers =====
+// ===== Login form logic =====
+
+const loginForm = document.getElementById('loginForm');
+
+if (loginForm) {
+    loginForm.addEventListener('submit', handleLogin);
+}
+
+function handleLogin(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    clearError('loginEmail');
+    clearError('loginPassword');
+
+    let isValid = true;
+
+    if (email.trim() === '') {
+        showError('loginEmail', 'Email is required');
+        isValid = false;
+    }
+
+    if (password === '') {
+        showError('loginPassword', 'Password is required');
+        isValid = false;
+    }
+
+    if (!isValid) {
+        return;
+    }
+
+    const emailValue = email.trim().toLowerCase();
+    const users = getUsers();
+    const matchedUser = users.find(
+        u => u.email === emailValue && u.password === password
+    );
+
+    if (!matchedUser) {
+        showError('loginPassword', 'Invalid email or password');
+        return;
+    }
+
+    const session = {
+        userId: matchedUser.id,
+        email: matchedUser.email,
+        loginAt: new Date().toISOString()
+    };
+
+    localStorage.setItem('crm_session', JSON.stringify(session));
+
+    window.location.href = 'dashboard.html';
+}
+
+// ===== Shared helpers =====
 
 function getUsers() {
     const stored = localStorage.getItem('crm_users');
