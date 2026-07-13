@@ -317,3 +317,218 @@ $font-main: "Josefin Sans", sans-serif;
     padding: 2rem;
     color: var(--text-main);
 }
+// ===== Clients page (Day 4) =====
+.clients_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    h1 {
+        font-family: $font-main;
+        color: var(--text-main);
+    }
+}
+
+.btn_primary {
+    background: $color-primary;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: $font-main;
+    transition: .2s;
+
+    &:hover {
+        background: $color-primary-dark;
+    }
+}
+
+.full_width {
+    width: 100%;
+}
+
+.clients_toolbar {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+
+    .toolbar_search_input {
+        flex: 1;
+        min-width: 220px;
+        padding: 10px 14px;
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        background: var(--bg-card);
+        color: var(--text-main);
+        outline: none;
+    }
+
+    .filter_chips {
+        display: flex;
+        gap: 8px;
+
+        .chip {
+            padding: 8px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+
+            &.active {
+                background: $color-primary;
+                color: white;
+                border-color: $color-primary;
+            }
+        }
+    }
+
+    .sort_select {
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        background: var(--bg-card);
+        color: var(--text-main);
+    }
+}
+
+.clients_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.client_card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    position: relative;
+    cursor: pointer;
+
+    .client_avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        margin-bottom: 8px;
+    }
+
+    .client_info {
+        h4 { margin: 0; color: var(--text-main); }
+        .client_company, .client_email {
+            margin: 2px 0;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+    }
+
+    .status_badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        margin-top: 8px;
+        border: none;
+    }
+
+    .badge_lead { background: #e0e7ff; color: #4338ca; }
+    .badge_contacted { background: #dbeafe; color: #1d4ed8; }
+    .badge_won { background: #dcfce7; color: #15803d; }
+    .badge_lost { background: #fee2e2; color: #b91c1c; }
+
+    .client_deal {
+        display: block;
+        font-weight: 700;
+        color: var(--text-main);
+        margin-top: 6px;
+    }
+
+    .delete_btn {
+        margin-top: 10px;
+        background: none;
+        border: 1px solid $color-error;
+        color: $color-error;
+        padding: 6px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 12px;
+
+        &:hover {
+            background: $color-error;
+            color: white;
+        }
+    }
+}
+
+.loading_text, .empty_text {
+    color: var(--text-muted);
+    text-align: center;
+    padding: 2rem;
+    grid-column: 1 / -1;
+}
+
+.error_state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    grid-column: 1 / -1;
+
+    p { margin-bottom: 1rem; }
+}
+
+// ===== Add Client Modal (markup exists now, wired on Day 5) =====
+.modal_overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+
+    &.hidden { display: none; }
+}
+
+.modal_box {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 420px;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    .modal_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        h3 { margin: 0; color: var(--text-main); }
+
+        .modal_close {
+            background: none;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+    }
+
+    .each_form_input input,
+    .each_form_input select {
+        width: 100%;
+        box-sizing: border-box;
+        background: var(--bg-main);
+        color: var(--text-main);
+        border: 1px solid var(--border-color);
+    }
+}
