@@ -3,9 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Profile</title>
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <script src="js/guard.js"></script>
+
+    <div id="page-content">
+        <div class="profile_top">
+            <div class="profile_avatar" id="profileAvatar"></div>
+            <div>
+                <h1 id="profileName">—</h1>
+                <p class="profile_email" id="profileEmail"></p>
+                <p class="profile_since" id="profileSince"></p>
+            </div>
+        </div>
+
+        <div class="profile_grid">
+            <!-- P5.2 — Save Changes -->
+            <div class="profile_card">
+                <h3>Edit Profile</h3>
+                <form id="editProfileForm" novalidate>
+                    <div class="each_form_input">
+                        <label for="profileFullName">Full Name</label>
+                        <input type="text" id="profileFullName" placeholder="Jane Smith">
+                        <small class="error-text" id="profileFullNameError"></small>
+                    </div>
+                    <div class="each_form_input">
+                        <label for="profileCompany">Company</label>
+                        <input type="text" id="profileCompany" placeholder="Company (optional)">
+                    </div>
+                    <button type="submit" class="btn_primary full_width">Save Changes</button>
+                </form>
+            </div>
+
+            <!-- P5.3 — Change Password -->
+            <div class="profile_card">
+                <h3>Change Password</h3>
+                <form id="changePasswordForm" novalidate>
+                    <div class="each_form_input">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword" placeholder="********">
+                        <small class="error-text" id="currentPasswordError"></small>
+                    </div>
+                    <div class="each_form_input">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" placeholder="********">
+                        <small class="error-text" id="newPasswordError"></small>
+                    </div>
+                    <div class="each_form_input">
+                        <label for="confirmNewPassword">Confirm New Password</label>
+                        <input type="password" id="confirmNewPassword" placeholder="********">
+                        <small class="error-text" id="confirmNewPasswordError"></small>
+                    </div>
+                    <button type="submit" class="btn_primary full_width">Change Password</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- P5.4 — Reset CRM Data -->
+        <div class="profile_card danger_zone">
+            <h3>Danger Zone</h3>
+            <p class="detail_muted">
+                This clears all locally stored clients and refetches fresh sample data
+                from the server next time you visit Dashboard or Clients. Your account
+                and login stay untouched.
+            </p>
+            <button id="resetDataBtn" class="btn_danger">Reset CRM Data</button>
+        </div>
+    </div>
+
+    <script src="js/nav.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/profile.js"></script>
 </body>
 </html>
