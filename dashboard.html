@@ -5,16 +5,56 @@
     <title>Dashboard</title>
     <script src="js/theme.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
     <script src="js/guard.js"></script>
 
-    <!-- nav.js wraps this container with the sidebar + topbar shell -->
     <div id="page-content">
-        <h1>Dashboard (placeholder — full build on Day 7)</h1>
+        <div class="dashboard_greeting">
+            <div>
+                <h1 id="greetingText">Welcome back!</h1>
+                <p id="liveClock"></p>
+            </div>
+        </div>
+
+        <div class="stats_grid">
+            <div class="stat_card">
+                <p class="stat_label">Total Clients</p>
+                <p class="stat_value" id="statTotalClients">0</p>
+            </div>
+            <div class="stat_card">
+                <p class="stat_label">Active Deals</p>
+                <p class="stat_value" id="statActiveDeals">0</p>
+            </div>
+            <div class="stat_card">
+                <p class="stat_label">Won Revenue</p>
+                <p class="stat_value" id="statWonRevenue">$0</p>
+            </div>
+            <div class="stat_card">
+                <p class="stat_label">New This Week</p>
+                <p class="stat_value" id="statNewThisWeek">0</p>
+            </div>
+        </div>
+
+        <div class="dashboard_lower">
+            <div class="pipeline_card">
+                <h3>Pipeline Overview</h3>
+                <div id="pipelineBars"></div>
+            </div>
+
+            <div class="recent_clients_card">
+                <h3>Recent Clients</h3>
+                <div id="recentClientsList"></div>
+                <a href="clients.html" class="view_all_link">View All Clients &rarr;</a>
+            </div>
+        </div>
     </div>
 
     <script src="js/nav.js"></script>
-    <script src="js/auth.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
