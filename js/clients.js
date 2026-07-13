@@ -12,9 +12,9 @@ const STATUS_CLASSES = {
 async function initClientsPage() {
     clientsListEl.innerHTML = '<p class="loading_text">Loading clients...</p>';
 
-    try {
-        const clients = await loadClients();
-        renderClients(clients);
+   try {
+        await loadClients();
+        applyFiltersAndRender();
     } catch (err) {
         renderLoadError();
     }
@@ -218,4 +218,100 @@ async function handleDeleteClient(id) {
     saveClients(clients);
     renderClients(clients);
     showToast('Client deleted', 'success');
+}
+
+
+// ===== Status change (Day 6, P4.6) =====
+// Uses event delegation on the same container, listening for "change"
+// this time instead of "click" — selects don't fire click the same way.
+
+clientsListEl.addEventListener('change', handleStatusChange);
+
+function handleStatusChange(e) {
+    if (!e.target.classList.contains('status_select')) return;
+
+    const id = Number(e.target.getAttribute('data-id'));
+    const newStatus = e.target.value;
+
+    const clients = getClients();
+    const client = clients.find(c => c.id === id);
+    if (!client) return;
+
+    client.status = newStatus;
+    saveClients(clients);
+
+    // Update just this select's color class instead of a full re-render,
+    // so the dropdown doesn't lose focus mid-interaction
+    e.target.className = `status_badge status_select ${STATUS_CLASSES[newStatus]}`;
+
+    // Re-apply current filters so a status change immediately reflects
+    // in an active filter (e.g. changing "Lead" -> "Won" while the
+    // "Lead" chip is active should make the card disappear from view)
+    applyFiltersAndRender();
+}
+
+// ===== Search, Filter, Sort (Day 6, P4.7) =====
+
+let activeStatusFilter = 'All';
+let currentSearchTerm = '';
+let currentSort = 'newest';
+
+const searchInput = document.getElementById('searchInput');
+const filterChipsEl = document.getElementById('filterChips');
+const sortSelect = document.getElementById('sortSelect');
+
+searchInput.addEventListener('input', (e) => {
+    currentSearchTerm = e.target.value;
+    applyFiltersAndRender();
+});
+
+filterChipsEl.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('chip')) return;
+
+    // Move "active" class to whichever chip was clicked
+    document.querySelectorAll('.chip').forEach(chip => chip.classList.remove('active'));
+    e.target.classList.add('active');
+
+    activeStatusFilter = e.target.getAttribute('data-status');
+    applyFiltersAndRender();
+});
+
+sortSelect.addEventListener('change', (e) => {
+    currentSort = e.target.value;
+    applyFiltersAndRender();
+});
+
+// Runs status filter -> search -> sort, in that order, on a COPY of
+// the stored array (so the original in localStorage is never mutated
+// just from viewing it with a filter applied).
+function getVisibleClients() {
+    let result = getClients();
+
+    if (activeStatusFilter !== 'All') {
+        result = result.filter(c => c.status === activeStatusFilter);
+    }
+
+    if (currentSearchTerm.trim() !== '') {
+        const term = currentSearchTerm.trim().toLowerCase();
+        result = result.filter(c =>
+            c.name.toLowerCase().includes(term) ||
+            c.company.toLowerCase().includes(term)
+        );
+    }
+
+    result = [...result]; // copy before sorting, never sort in place
+
+    if (currentSort === 'newest') {
+        result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    } else if (currentSort === 'name') {
+        result.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (currentSort === 'deal') {
+        result.sort((a, b) => b.dealValue - a.dealValue);
+    }
+
+    return result;
+}
+
+function applyFiltersAndRender() {
+    renderClients(getVisibleClients());
 }
