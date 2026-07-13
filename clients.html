@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients</title>
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="js/guard.js"></script>
+
+    <div id="page-content">
+        <div class="clients_header">
+            <h1>Clients</h1>
+            <button id="addClientBtn" class="btn_primary">+ Add Client</button>
+        </div>
+
+        <div class="clients_toolbar">
+            <input type="text" id="searchInput" class="toolbar_search_input" placeholder="Search by name or company...">
+            <div class="filter_chips" id="filterChips">
+                <button class="chip active" data-status="All">All</button>
+                <button class="chip" data-status="Lead">Lead</button>
+                <button class="chip" data-status="Contacted">Contacted</button>
+                <button class="chip" data-status="Won">Won</button>
+                <button class="chip" data-status="Lost">Lost</button>
+            </div>
+            <select id="sortSelect" class="sort_select">
+                <option value="newest">Newest first</option>
+                <option value="name">Name A-Z</option>
+                <option value="deal">Deal value: high to low</option>
+            </select>
+        </div>
+
+        <div id="clientsList" class="clients_list">
+            <!-- loading / error / cards injected here by clients.js -->
+        </div>
+    </div>
+
+    <!-- Add Client Modal — wired up on Day 5, markup built now -->
+    <div id="addClientModal" class="modal_overlay hidden">
+        <div class="modal_box">
+            <div class="modal_header">
+                <h3>Add New Client</h3>
+                <button id="closeAddClientModal" class="modal_close">&times;</button>
+            </div>
+            <form id="addClientForm" novalidate>
+                <div class="each_form_input">
+                    <label for="clientName">Name</label>
+                    <input type="text" id="clientName" placeholder="Jane Smith">
+                    <small class="error-text" id="clientNameError"></small>
+                </div>
+                <div class="each_form_input">
+                    <label for="clientEmail">Email</label>
+                    <input type="text" id="clientEmail" placeholder="jane@company.com">
+                    <small class="error-text" id="clientEmailError"></small>
+                </div>
+                <div class="each_form_input">
+                    <label for="clientPhone">Phone</label>
+                    <input type="text" id="clientPhone" placeholder="+1 555-123-4567">
+                    <small class="error-text" id="clientPhoneError"></small>
+                </div>
+                <div class="each_form_input">
+                    <label for="clientCompany">Company</label>
+                    <input type="text" id="clientCompany" placeholder="Acme Inc (optional)">
+                </div>
+                <div class="each_form_input">
+                    <label for="clientDealValue">Deal Value</label>
+                    <input type="text" id="clientDealValue" placeholder="5000">
+                    <small class="error-text" id="clientDealValueError"></small>
+                </div>
+                <div class="each_form_input">
+                    <label for="clientStatus">Status</label>
+                    <select id="clientStatus">
+                        <option value="Lead">Lead</option>
+                        <option value="Contacted">Contacted</option>
+                        <option value="Won">Won</option>
+                        <option value="Lost">Lost</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn_primary full_width">Add Client</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/nav.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/clients.js"></script>
+</body>
+</html>
