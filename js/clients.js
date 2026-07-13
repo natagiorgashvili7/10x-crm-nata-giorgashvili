@@ -47,14 +47,19 @@ function renderClients(list) {
         const badgeClass = STATUS_CLASSES[client.status] || 'badge_lead';
         const formattedDeal = `$${client.dealValue.toLocaleString()}`;
 
-        card.innerHTML = `
+       card.innerHTML = `
             <img src="${client.image}" alt="${client.name}" class="client_avatar">
             <div class="client_info">
                 <h4>${client.name}</h4>
                 <p class="client_company">${client.company}</p>
                 <p class="client_email">${client.email}</p>
             </div>
-            <span class="status_badge ${badgeClass}">${client.status}</span>
+            <select class="status_badge status_select ${badgeClass}" data-id="${client.id}">
+                <option value="Lead" ${client.status === 'Lead' ? 'selected' : ''}>Lead</option>
+                <option value="Contacted" ${client.status === 'Contacted' ? 'selected' : ''}>Contacted</option>
+                <option value="Won" ${client.status === 'Won' ? 'selected' : ''}>Won</option>
+                <option value="Lost" ${client.status === 'Lost' ? 'selected' : ''}>Lost</option>
+            </select>
             <span class="client_deal">${formattedDeal}</span>
             <button class="delete_btn" data-id="${client.id}">Delete</button>
         `;
