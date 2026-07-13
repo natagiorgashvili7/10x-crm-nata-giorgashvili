@@ -532,3 +532,205 @@ $font-main: "Josefin Sans", sans-serif;
         border: 1px solid var(--border-color);
     }
 }
+
+
+// ===== Dashboard (Day 7) =====
+.dashboard_greeting {
+    margin-bottom: 1.5rem;
+
+    h1 {
+        font-family: $font-main;
+        color: var(--text-main);
+        margin: 0 0 4px;
+    }
+
+    p {
+        color: var(--text-muted);
+        font-size: 13px;
+        margin: 0;
+    }
+}
+
+.stats_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 1.5rem;
+}
+
+.stat_card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.2rem;
+
+    .stat_label {
+        color: var(--text-muted);
+        font-size: 13px;
+        margin: 0 0 6px;
+    }
+
+    .stat_value {
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--text-main);
+        margin: 0;
+    }
+}
+
+.dashboard_lower {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 16px;
+}
+
+.pipeline_card, .recent_clients_card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.2rem;
+
+    h3 {
+        color: var(--text-main);
+        margin: 0 0 1rem;
+        font-family: $font-main;
+    }
+}
+
+.pipeline_row {
+    margin-bottom: 1rem;
+
+    .pipeline_row_label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        color: var(--text-muted);
+        margin-bottom: 4px;
+    }
+
+    .pipeline_bar_track {
+        background: var(--border-color);
+        border-radius: 20px;
+        height: 8px;
+        overflow: hidden;
+    }
+
+    .pipeline_bar_fill {
+        height: 100%;
+        border-radius: 20px;
+
+        &.badge_lead { background: #4338ca; }
+        &.badge_contacted { background: #1d4ed8; }
+        &.badge_won { background: #15803d; }
+        &.badge_lost { background: #b91c1c; }
+    }
+}
+
+.recent_client_row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+
+    .recent_avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+    }
+
+    .recent_info {
+        flex: 1;
+
+        .recent_name {
+            margin: 0;
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 14px;
+        }
+
+        .recent_company {
+            margin: 0;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+    }
+
+    .recent_date {
+        font-size: 12px;
+        color: var(--text-muted);
+    }
+}
+
+.view_all_link {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+// ===== Client Details Modal (Day 7) =====
+.details_top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1rem;
+
+    .details_avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+    }
+
+    h4 { margin: 0; color: var(--text-main); }
+    .detail_muted { margin: 2px 0 0; color: var(--text-muted); font-size: 13px; }
+}
+
+.details_grid {
+    margin-bottom: 1rem;
+
+    p {
+        margin: 6px 0;
+        color: var(--text-main);
+        font-size: 14px;
+    }
+}
+
+.notes_section {
+    margin-top: 1rem;
+
+    h4 { color: var(--text-main); margin-bottom: 8px; }
+}
+
+.notes_list {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.note_item {
+    background: var(--bg-main);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 6px;
+
+    .note_text { margin: 0; color: var(--text-main); font-size: 13px; }
+    .note_date { margin: 2px 0 0; color: var(--text-muted); font-size: 11px; }
+}
+
+.add_note_row {
+    display: flex;
+    gap: 8px;
+
+    input {
+        flex: 1;
+        padding: 8px 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--bg-main);
+        color: var(--text-main);
+    }
+}
