@@ -315,3 +315,118 @@ function getVisibleClients() {
 function applyFiltersAndRender() {
     renderClients(getVisibleClients());
 }
+
+// ===== Client Details Modal + Notes + Reminder (Day 7, P4.8) =====
+
+const clientDetailsModal = document.getElementById('clientDetailsModal');
+let currentDetailClientId = null;
+
+document.getElementById('closeDetailsModal').addEventListener('click', closeDetailsModal);
+
+clientDetailsModal.addEventListener('click', (e) => {
+    if (e.target === clientDetailsModal) {
+        closeDetailsModal();
+    }
+});
+
+// Clicking a card opens details — but NOT if the click was on the
+// delete button or the status select, which already have their own
+// handlers. Extend the existing container click listener.
+clientsListEl.addEventListener('click', (e) => {
+    if (e.target.classList.contains('delete_btn')) return;
+    if (e.target.classList.contains('status_select')) return;
+
+    const card = e.target.closest('.client_card');
+    if (!card) return;
+
+    const id = Number(card.getAttribute('data-id'));
+    openDetailsModal(id);
+});
+
+function openDetailsModal(id) {
+    const clients = getClients();
+    const client = clients.find(c => c.id === id);
+    if (!client) return;
+
+    currentDetailClientId = id;
+
+    document.getElementById('detailAvatar').src = client.image;
+    document.getElementById('detailAvatar').alt = client.name;
+    document.getElementById('detailName').textContent = client.name;
+    document.getElementById('detailCompany').textContent = client.company;
+    document.getElementById('detailEmail').textContent = client.email;
+    document.getElementById('detailPhone').textContent = client.phone || '—';
+    document.getElementById('detailStatus').textContent = client.status;
+    document.getElementById('detailDealValue').textContent = `$${client.dealValue.toLocaleString()}`;
+    document.getElementById('detailSince').textContent = new Date(client.createdAt).toLocaleDateString();
+
+    renderNotes(client.notes);
+
+    clientDetailsModal.classList.remove('hidden');
+}
+
+function closeDetailsModal() {
+    clientDetailsModal.classList.add('hidden');
+    currentDetailClientId = null;
+    document.getElementById('newNoteInput').value = '';
+}
+
+function renderNotes(notes) {
+    const notesListEl = document.getElementById('notesList');
+    notesListEl.innerHTML = '';
+
+    if (!notes || notes.length === 0) {
+        notesListEl.innerHTML = '<p class="empty_text">No notes yet.</p>';
+        return;
+    }
+
+    // Oldest first, per PRD ("ძველი > ახალი")
+    notes.forEach(note => {
+        const noteEl = document.createElement('div');
+        noteEl.className = 'note_item';
+        noteEl.innerHTML = `
+            <p class="note_text">${note.text}</p>
+            <p class="note_date">${note.date}</p>
+        `;
+        notesListEl.appendChild(noteEl);
+    });
+}
+
+document.getElementById('addNoteBtn').addEventListener('click', handleAddNote);
+
+function handleAddNote() {
+    const input = document.getElementById('newNoteInput');
+    const text = input.value.trim();
+
+    if (text === '' || currentDetailClientId === null) return;
+
+    const clients = getClients();
+    const client = clients.find(c => c.id === currentDetailClientId);
+    if (!client) return;
+
+    client.notes.push({
+        text: text,
+        date: new Date().toLocaleString()
+    });
+
+    saveClients(clients);
+    renderNotes(client.notes);
+    input.value = '';
+}
+
+document.getElementById('remindMeBtn').addEventListener('click', handleRemindMe);
+
+function handleRemindMe() {
+    if (currentDetailClientId === null) return;
+
+    const clients = getClients();
+    const client = clients.find(c => c.id === currentDetailClientId);
+    if (!client) return;
+
+    const clientName = client.name; // captured now, in case modal closes later
+    showToast('Reminder set ✓', 'success');
+
+    setTimeout(() => {
+        showToast(`⏰ Follow up: ${clientName}`, 'success');
+    }, 60000);
+}
