@@ -1,7 +1,4 @@
-// Builds the sidebar + topbar shell shared across all protected pages,
-// and injects it around whatever page-specific content already exists
-// in #page-content. Written once here instead of duplicating this HTML
-// into dashboard.html, clients.html, and profile.html separately.
+// Builds the sidebar + topbar shell shared across all protected pages
 
 function renderShell() {
     const pageContent = document.getElementById('page-content');
@@ -15,7 +12,7 @@ function renderShell() {
     const currentUser = users.find(u => u.id === session?.userId);
     const displayName = currentUser ? currentUser.fullName : 'User';
 
-    // ----- Sidebar -----
+    // Sidebar
     const sidebar = document.createElement('aside');
     sidebar.className = 'app_sidebar';
     sidebar.innerHTML = `
@@ -51,7 +48,6 @@ function renderShell() {
         </div>
     `;
 
-    // ----- Assemble layout -----
     // Wrap everything so CSS grid can lay out sidebar | (topbar + content)
     const main = document.createElement('div');
     main.className = 'app_main';
