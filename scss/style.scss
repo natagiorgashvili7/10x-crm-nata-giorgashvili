@@ -1,4 +1,24 @@
 // Variables
+:root,
+[data-theme="light"] {
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-sidebar: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e5e7eb;
+}
+
+[data-theme="dark"] {
+    --bg-main: #0f172a;
+    --bg-card: #1e293b;
+    --bg-sidebar: #1e293b;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+}
+
+
 $color-primary: #2563eb;
 $color-primary-dark: #1d4ed8;
 $color-error: #ef4444;
@@ -14,7 +34,7 @@ $font-main: "Josefin Sans", sans-serif;
     align-items: center;
     min-height: 90vh;
     background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-
+// sign up box, that is in center of the screen
     .sign_up_section {
         width: 100%;
         max-width: 420px;
@@ -32,7 +52,7 @@ $font-main: "Josefin Sans", sans-serif;
         border-radius: 16px;
         gap: 20px;
         box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
-
+// sign up titles
         .sign_up_info {
             display: flex;
             flex-direction: column;
@@ -150,26 +170,10 @@ $font-main: "Josefin Sans", sans-serif;
         }
     }
 }
-// ===== Theme variables =====
-// data-theme lives on <html>, set by theme.js before first paint
-:root,
-[data-theme="light"] {
-    --bg-main: #f8fafc;
-    --bg-card: #ffffff;
-    --bg-sidebar: #ffffff;
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --border-color: #e5e7eb;
-}
 
-[data-theme="dark"] {
-    --bg-main: #0f172a;
-    --bg-card: #1e293b;
-    --bg-sidebar: #1e293b;
-    --text-main: #f1f5f9;
-    --text-muted: #94a3b8;
-    --border-color: #334155;
-}
+
+
+
 
 // ===== Shell layout =====
 .app_shell {
