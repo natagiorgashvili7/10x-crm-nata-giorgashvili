@@ -76,14 +76,14 @@ function handleSignup(e) {
     }, 1500);
 }
 
-// ===== Login form logic =====
+
+
+//Login form
 
 const loginForm = document.getElementById('loginForm');
-
 if (loginForm) {
     loginForm.addEventListener('submit', handleLogin);
 }
-
 function handleLogin(e) {
     e.preventDefault();
 
@@ -92,9 +92,9 @@ function handleLogin(e) {
 
     clearError('loginEmail');
     clearError('loginPassword');
-
     let isValid = true;
 
+    // if email and pasword box is clear
     if (email.trim() === '') {
         showError('loginEmail', 'Email is required');
         isValid = false;
@@ -127,9 +127,10 @@ function handleLogin(e) {
     };
 
     localStorage.setItem('crm_session', JSON.stringify(session));
-
     window.location.href = 'dashboard.html';
 }
+
+
 
 // ===== Shared helpers =====
 

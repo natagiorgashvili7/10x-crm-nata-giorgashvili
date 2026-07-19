@@ -1,7 +1,4 @@
-// Runs on every page, before content is meant to be visible, to enforce
-// access rules. This file does ONLY the redirect check — no form logic
-// belongs here, since guard.js loads at the TOP of <body>, before forms
-// on the page even exist in the DOM yet.
+// Runs on every page, before content is meant to be visible, to enforce access rules.
 
 function checkAuthGuard() {
     const session = localStorage.getItem('crm_session');
