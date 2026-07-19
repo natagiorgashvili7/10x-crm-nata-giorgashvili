@@ -8,7 +8,7 @@ if (signupForm) {
 
 function handleSignup(e) {
     e.preventDefault();
-
+    // all form info's values
     const fullName = document.getElementById('fullName').value;
     const email = document.getElementById('email').value;
     const company = document.getElementById('company').value;
@@ -22,12 +22,12 @@ function handleSignup(e) {
     clearError('password');
     clearError('confirmPassword');
     let isValid = true;
-
+// if name is least 3 charachters show error
     if (fullName.trim().length < 3) {
         showError('fullName', 'Full name must be at least 3 characters');
         isValid = false;
     }
-
+// if email does not contain this symbols show error and if already exists, tell user
     if (!emailPattern.test(emailValue)) {
         showError('email', 'Please enter a valid email address');
         isValid = false;
@@ -39,7 +39,7 @@ function handleSignup(e) {
             isValid = false;
         }
     }
-
+// password validation rules
     const hasLetter = /[a-zA-Z]/.test(password);
     const hasDigit = /[0-9]/.test(password);
     if (password.length < 8 || !hasLetter || !hasDigit) {
@@ -55,7 +55,7 @@ function handleSignup(e) {
     if (!isValid) {
         return;
     }
-
+// create user
     const newUser = {
         id: Date.now(),
         fullName: fullName.trim(),
