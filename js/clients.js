@@ -70,7 +70,7 @@ function renderClients(list) {
 
 initClientsPage();
 
-// ===== Add Client Modal (Day 5) =====
+// Add Client Modal
 
 const addClientModal = document.getElementById('addClientModal');
 const addClientForm = document.getElementById('addClientForm');
@@ -78,7 +78,7 @@ const addClientForm = document.getElementById('addClientForm');
 document.getElementById('addClientBtn').addEventListener('click', openAddClientModal);
 document.getElementById('closeAddClientModal').addEventListener('click', closeAddClientModal);
 
-// Bonus: click on the dark overlay (not the box itself) also closes it
+// click on the dark overlay (not the box itself) also closes it
 addClientModal.addEventListener('click', (e) => {
     if (e.target === addClientModal) {
         closeAddClientModal();
@@ -151,7 +151,7 @@ async function handleAddClient(e) {
         return;
     }
 
-    // ---- POST to DummyJSON (mocked write — see PRD note on this) ----
+    // POST to DummyJSON
     let apiResponse;
     try {
         const response = await fetch('https://dummyjson.com/users/add', {
@@ -187,7 +187,7 @@ async function handleAddClient(e) {
     showToast('Client added ✓', 'success');
 }
 
-// ===== Delete Client (Day 5) =====
+// ===== Delete Client =====
 // Event delegation: one listener on the container instead of one
 // per card, since cards get destroyed/recreated on every render.
 
@@ -221,7 +221,7 @@ async function handleDeleteClient(id) {
 }
 
 
-// ===== Status change (Day 6, P4.6) =====
+// ===== Status change =====
 // Uses event delegation on the same container, listening for "change"
 // this time instead of "click" — selects don't fire click the same way.
 
