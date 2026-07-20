@@ -321,7 +321,9 @@ $font-main: "Josefin Sans", sans-serif;
     padding: 2rem;
     color: var(--text-main);
 }
-// ===== Clients page (Day 4) =====
+
+
+// Clients page
 .clients_header {
     display: flex;
     justify-content: space-between;
@@ -488,7 +490,7 @@ $font-main: "Josefin Sans", sans-serif;
     p { margin-bottom: 1rem; }
 }
 
-// ===== Add Client Modal (markup exists now, wired on Day 5) =====
+// Add Client Modal
 .modal_overlay {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
