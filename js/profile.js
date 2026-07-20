@@ -23,6 +23,15 @@ function renderProfileInfo() {
     const user = getCurrentUser();
     if (!user) return;
 
+    const initials = user.fullName
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase())
+        .join('')
+        .slice(0, 2);
+
+    document.getElementById('profileAvatar').textContent = initials;
+    document.getElementById('profileName').textContent = user.fullName;
+
     document.getElementById('profileAvatar').textContent = user.fullName.charAt(0).toUpperCase();
     document.getElementById('profileName').textContent = user.fullName;
     document.getElementById('profileEmail').textContent = user.email;
@@ -124,16 +133,21 @@ function handleChangePassword(e) {
 
 document.getElementById('resetDataBtn').addEventListener('click', handleResetData);
 
-function handleResetData() {
+async function handleResetData() {
     const confirmed = confirm(
         'Reset all CRM data? This deletes every client stored locally ' +
-        'and cannot be undone. Fresh sample data will be fetched next time ' +
-        'you open Dashboard or Clients.'
+        'and cannot be undone. Fresh sample data will be fetched from the server.'
     );
     if (!confirmed) return;
 
     localStorage.removeItem('crm_clients');
-    showToast('CRM data reset ✓', 'success');
+
+    try {
+        await loadClients();
+        showToast('CRM data reset ✓', 'success');
+    } catch (err) {
+        showToast('Reset failed — could not reach the API', 'error');
+    }
 }
 
 // ===== Shared helpers =====
