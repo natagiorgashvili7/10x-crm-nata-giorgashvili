@@ -1,4 +1,4 @@
-// ===== Clients page: load + render (Day 4) =====
+//Clients page: load + render
 
 const clientsListEl = document.getElementById('clientsList');
 

@@ -1,6 +1,4 @@
 // ===== crm_clients storage helpers =====
-// Shared across clients.js today, and dashboard.js later (Day 7)
-// reads from getClients() too for its stats.
 
 function getClients() {
     const stored = localStorage.getItem('crm_clients');
@@ -11,7 +9,7 @@ function saveClients(clients) {
     localStorage.setItem('crm_clients', JSON.stringify(clients));
 }
 
-// Converts one DummyJSON user into our Client shape (PRD section 5.4)
+// Converts one DummyJSON user into our Client shape
 function transformApiUserToClient(user) {
     return {
         id: user.id,
