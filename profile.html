@@ -13,19 +13,19 @@
 <body>
     <script src="js/guard.js"></script>
 
-    <div id="page-content">
-        <div class="profile_top">
+    <section id="page-content">
+        <header class="profile_top">
             <div class="profile_avatar" id="profileAvatar"></div>
             <div>
                 <h1 id="profileName">—</h1>
                 <p class="profile_email" id="profileEmail"></p>
                 <p class="profile_since" id="profileSince"></p>
             </div>
-        </div>
+        </header>
 
-        <div class="profile_grid">
-            <!-- P5.2 — Save Changes -->
-            <div class="profile_card">
+        <main class="profile_grid">
+            <!-- Save Changes -->
+            <section class="profile_card">
                 <h3>Edit Profile</h3>
                 <form id="editProfileForm" novalidate>
                     <div class="each_form_input">
@@ -39,10 +39,10 @@
                     </div>
                     <button type="submit" class="btn_primary full_width">Save Changes</button>
                 </form>
-            </div>
+            </section>
 
-            <!-- P5.3 — Change Password -->
-            <div class="profile_card">
+            <!-- Change Password -->
+            <section class="profile_card">
                 <h3>Change Password</h3>
                 <form id="changePasswordForm" novalidate>
                     <div class="each_form_input">
@@ -62,11 +62,11 @@
                     </div>
                     <button type="submit" class="btn_primary full_width">Change Password</button>
                 </form>
-            </div>
-        </div>
+            </section>
+        </main>
 
-        <!-- P5.4 — Reset CRM Data -->
-        <div class="profile_card danger_zone">
+        <!-- Reset CRM Data -->
+        <footer>class="profile_card danger_zone">
             <h3>Danger Zone</h3>
             <p class="detail_muted">
                 This clears all locally stored clients and refetches fresh sample data
@@ -74,8 +74,8 @@
                 and login stay untouched.
             </p>
             <button id="resetDataBtn" class="btn_danger">Reset CRM Data</button>
-        </div>
-    </div>
+        </footer>
+    </section>
 
     <script src="js/nav.js"></script>
     <script src="js/data.js"></script>

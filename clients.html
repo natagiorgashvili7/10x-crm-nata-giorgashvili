@@ -12,13 +12,13 @@
 <body>
     <script src="js/guard.js"></script>
 <!-- clients page structure -->
-    <div id="page-content">
+    <header id="page-content">
         <div class="clients_header">
             <h1>Clients</h1>
             <button id="addClientBtn" class="btn_primary">+ Add Client</button>
         </div>
 
-        <div class="clients_toolbar">
+        <section class="clients_toolbar">
             <input type="text" id="searchInput" class="toolbar_search_input" placeholder="Search by name or company...">
             <div class="filter_chips" id="filterChips">
                 <button class="chip active" data-status="All">All</button>
@@ -32,16 +32,16 @@
                 <option value="name">Name A-Z</option>
                 <option value="deal">Deal value: high to low</option>
             </select>
-        </div>
+        </section>
 
         <div id="clientsList" class="clients_list">
             <!-- loading / error / cards injected here by clients.js -->
         </div>
-    </div>
+    </header>
 
     <!-- Add Client Modal -->
-    <div id="addClientModal" class="modal_overlay hidden">
-        <div class="modal_box">
+    <main id="addClientModal" class="modal_overlay hidden">
+        <section class="modal_box">
             <div class="modal_header">
                 <h3>Add New Client</h3>
                 <button id="closeAddClientModal" class="modal_close">&times;</button>
@@ -82,8 +82,8 @@
                 </div>
                 <button type="submit" class="btn_primary full_width">Add Client</button>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
     <!-- Client Details Modal-->
     <div id="clientDetailsModal" class="modal_overlay hidden">
         <div class="modal_box">

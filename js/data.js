@@ -4,7 +4,6 @@ function getClients() {
     const stored = localStorage.getItem('crm_clients');
     return stored ? JSON.parse(stored) : [];
 }
-
 function saveClients(clients) {
     localStorage.setItem('crm_clients', JSON.stringify(clients));
 }
@@ -25,8 +24,7 @@ function transformApiUserToClient(user) {
     };
 }
 
-// If crm_clients already exists, use it (no API call).
-// Otherwise fetch fresh data from DummyJSON and cache it.
+// If crm_clients already exists, use it (no API call). Otherwise fetch fresh data from DummyJSON and cache it.
 async function loadClients() {
     const cached = getClients();
     if (cached.length > 0) {

@@ -78,7 +78,7 @@ const addClientForm = document.getElementById('addClientForm');
 document.getElementById('addClientBtn').addEventListener('click', openAddClientModal);
 document.getElementById('closeAddClientModal').addEventListener('click', closeAddClientModal);
 
-// click on the dark overlay (not the box itself) also closes it
+
 addClientModal.addEventListener('click', (e) => {
     if (e.target === addClientModal) {
         closeAddClientModal();
@@ -166,12 +166,12 @@ async function handleAddClient(e) {
     }
 
     const newClient = {
-        id: apiResponse.id, // server-issued id, per PRD instructions
+        id: apiResponse.id,
         name: name.trim(),
         email: emailValue,
         phone: phone.trim(),
         company: company.trim(),
-        image: 'https://dummyjson.com/icon/newclient/128', // no upload per Out of Scope
+        image: 'https://dummyjson.com/icon/newclient/128',
         status: status,
         dealValue: dealValue,
         notes: [],
@@ -179,7 +179,7 @@ async function handleAddClient(e) {
     };
 
     const clients = getClients();
-    clients.unshift(newClient); // new client appears at the top
+    clients.unshift(newClient);
     saveClients(clients);
     renderClients(clients);
 
@@ -188,8 +188,6 @@ async function handleAddClient(e) {
 }
 
 // ===== Delete Client =====
-// Event delegation: one listener on the container instead of one
-// per card, since cards get destroyed/recreated on every render.
 
 clientsListEl.addEventListener('click', handleClientsListClick);
 
@@ -206,12 +204,8 @@ async function handleDeleteClient(id) {
 
     try {
         await fetch(`https://dummyjson.com/users/${id}`, { method: 'DELETE' });
-        // Note: DummyJSON may return 404 for clients we added ourselves,
-        // since it never actually persisted them server-side. That's
-        // expected — we still remove it from our own state below.
     } catch (err) {
-        // Even on network failure, DummyJSON's write endpoints are
-        // mocked anyway, so we proceed with the local removal.
+
     }
 
     const clients = getClients().filter(c => c.id !== id);
@@ -222,8 +216,6 @@ async function handleDeleteClient(id) {
 
 
 // ===== Status change =====
-// Uses event delegation on the same container, listening for "change"
-// this time instead of "click" — selects don't fire click the same way.
 
 clientsListEl.addEventListener('change', handleStatusChange);
 
@@ -250,7 +242,7 @@ function handleStatusChange(e) {
     applyFiltersAndRender();
 }
 
-// ===== Search, Filter, Sort (Day 6, P4.7) =====
+// ===== Search, Filter, Sort  =====
 
 let activeStatusFilter = 'All';
 let currentSearchTerm = '';
@@ -316,7 +308,7 @@ function applyFiltersAndRender() {
     renderClients(getVisibleClients());
 }
 
-// ===== Client Details Modal + Notes + Reminder (Day 7, P4.8) =====
+// ===== Client Details Modal + Notes + Reminder =====
 
 const clientDetailsModal = document.getElementById('clientDetailsModal');
 let currentDetailClientId = null;
@@ -380,7 +372,7 @@ function renderNotes(notes) {
         return;
     }
 
-    // Oldest first, per PRD ("ძველი > ახალი")
+    // Oldest first, per PRD
     notes.forEach(note => {
         const noteEl = document.createElement('div');
         noteEl.className = 'note_item';
