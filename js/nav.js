@@ -2,7 +2,7 @@
 
 function renderShell() {
     const pageContent = document.getElementById('page-content');
-    if (!pageContent) return; // safety check if a page forgot the container
+    if (!pageContent) return;
 
     // Figure out which nav link should be marked active
     const currentPage = window.location.pathname.split('/').pop();
@@ -70,7 +70,6 @@ function renderShell() {
         document.body.appendChild(toastContainer);
     }
 
-    // ----- Wire up buttons -----
     document.getElementById('logoutBtn').addEventListener('click', handleLogout);
     document.getElementById('themeToggleBtn').addEventListener('click', toggleTheme);
 }
