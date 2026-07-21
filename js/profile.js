@@ -31,9 +31,6 @@ function renderProfileInfo() {
 
     document.getElementById('profileAvatar').textContent = initials;
     document.getElementById('profileName').textContent = user.fullName;
-
-    document.getElementById('profileAvatar').textContent = user.fullName.charAt(0).toUpperCase();
-    document.getElementById('profileName').textContent = user.fullName;
     document.getElementById('profileEmail').textContent = user.email;
     document.getElementById('profileSince').textContent =
         `Member since ${new Date(user.createdAt).toLocaleDateString()}`;

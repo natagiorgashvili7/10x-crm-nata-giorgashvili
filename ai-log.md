@@ -36,3 +36,10 @@
 **What I learned:** `.filter()`, `.find()`, and `.sort()` all return new arrays/values instead of mutating the original — this is why `getVisibleClients()` could safely apply search/filter/sort without ever corrupting the actual data stored in `crm_clients`.
 
 ---
+
+## Entry 5 — Writing the README and Project Documentation
+**Goal:** Create a clear and professional README.md that explains the project, setup steps, features, and technologies used, while making sure it meets the repository requirements.
+**Prompt:** "Help me write a professional README for my 10X CRM project. Include the project overview, features, technologies, installation steps, folder structure, and usage instructions."
+**Tool:** Claude (Sonnet)
+**Result:** Used. The AI generated a well-structured README, but I reviewed and edited it to accurately reflect my own implementation, removing features that weren't in my project and rewriting some sections in my own words to better match the final version.
+**What I learned:** AI can quickly generate a good documentation structure, but it still needs human review for accuracy. I learned that a README should describe the actual implementation rather than what was originally planned, and that clear documentation makes a project much easier for others to understand and evaluate.
