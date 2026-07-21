@@ -2,8 +2,6 @@
 
 function checkAuthGuard() {
     const session = localStorage.getItem('crm_session');
-
-    // Get just the filename from the URL, e.g. "index.html"
     const currentPage = window.location.pathname.split('/').pop();
 
     const protectedPages = ['dashboard.html', 'clients.html', 'profile.html'];
@@ -13,7 +11,6 @@ function checkAuthGuard() {
     if (protectedPages.includes(currentPage) && !session) {
         window.location.href = 'index.html';
     }
-
     // Already logged in, but on login/signup -> bounce to dashboard
     if (publicAuthPages.includes(currentPage) && session) {
         window.location.href = 'dashboard.html';

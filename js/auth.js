@@ -114,8 +114,7 @@ function handleLogin(e) {
     const emailValue = email.trim().toLowerCase();
     const users = getUsers();
     const matchedUser = users.find(
-        u => u.email === emailValue && u.password === password
-    );
+        u => u.email === emailValue && u.password === password);
 
     if (!matchedUser) {
         showError('loginPassword', 'Invalid email or password');
