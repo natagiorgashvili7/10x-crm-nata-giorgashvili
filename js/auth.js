@@ -22,6 +22,7 @@ function handleSignup(e) {
     clearError('password');
     clearError('confirmPassword');
     let isValid = true;
+
 // if name is least 3 charachters show error
     if (fullName.trim().length < 3) {
         showError('fullName', 'Full name must be at least 3 characters');
@@ -55,6 +56,7 @@ function handleSignup(e) {
     if (!isValid) {
         return;
     }
+    
 // create user
     const newUser = {
         id: Date.now(),

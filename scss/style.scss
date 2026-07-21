@@ -7,6 +7,25 @@ $color-border: #d1d5db;
 $color-label: #334155;
 $font-main: "Josefin Sans", sans-serif;
 
+// ===== Theme variables (light/dark) =====
+:root, [data-theme="light"] {
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-sidebar: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e5e7eb;
+}
+
+[data-theme="dark"] {
+    --bg-main: #0f172a;
+    --bg-card: #1e293b;
+    --bg-sidebar: #1e293b;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+}
+
 // ===== Auth pages (Sign Up / Login) =====
 .sign_up {
     display: flex;
@@ -36,7 +55,9 @@ $font-main: "Josefin Sans", sans-serif;
             flex-direction: column;
             gap: 10px;
 
-            h3, p { margin: 0; }
+            h3, p { 
+                margin: 0; 
+            }
 
             .sign_up_title {
                 font-family: $font-main;
@@ -139,24 +160,7 @@ $font-main: "Josefin Sans", sans-serif;
     }
 }
 
-// ===== Theme variables (light/dark) =====
-:root, [data-theme="light"] {
-    --bg-main: #f8fafc;
-    --bg-card: #ffffff;
-    --bg-sidebar: #ffffff;
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --border-color: #e5e7eb;
-}
 
-[data-theme="dark"] {
-    --bg-main: #0f172a;
-    --bg-card: #1e293b;
-    --bg-sidebar: #1e293b;
-    --text-main: #f1f5f9;
-    --text-muted: #94a3b8;
-    --border-color: #334155;
-}
 
 // ===== Shared "muted" text helper (used on profile, client details, etc.) =====
 .detail_muted {
@@ -182,8 +186,17 @@ $font-main: "Josefin Sans", sans-serif;
 
     .sidebar_logo {
         margin-bottom: 2rem;
-        h2 { font-family: $font-main; font-size: 20px; color: $color-primary; margin: 0; }
-        p { font-size: 12px; color: var(--text-muted); margin: 2px 0 0; }
+        h2 { 
+            font-family: $font-main; 
+            font-size: 20px; 
+            color: $color-primary; 
+            margin: 0; 
+        }
+        p { 
+            font-size: 12px; 
+            color: var(--text-muted); 
+            margin: 2px 0 0; 
+        }
     }
 
     .sidebar_nav {
