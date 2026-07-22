@@ -1,4 +1,4 @@
-// ===== Profile page logic (P5) =====
+// ===== Profile page logic =====
 // Self-contained: defines its own showError/clearError/showToast so this
 // page doesn't depend on auth.js (which isn't loaded here).
 
@@ -17,7 +17,7 @@ function saveUsers(users) {
     localStorage.setItem('crm_users', JSON.stringify(users));
 }
 
-// ===== P5.1 — Render profile info =====
+// =====  Render profile info =====
 
 function renderProfileInfo() {
     const user = getCurrentUser();
@@ -42,7 +42,7 @@ function renderProfileInfo() {
 
 renderProfileInfo();
 
-// ===== P5.2 — Save Changes (edit name / company) =====
+// =====Save Changes (edit name / company) =====
 
 const editProfileForm = document.getElementById('editProfileForm');
 editProfileForm.addEventListener('submit', handleEditProfile);
@@ -73,7 +73,7 @@ function handleEditProfile(e) {
     showToast('Profile updated ✓', 'success');
 }
 
-// ===== P5.3 — Change Password =====
+// ===== Change Password =====
 
 const changePasswordForm = document.getElementById('changePasswordForm');
 changePasswordForm.addEventListener('submit', handleChangePassword);
@@ -126,7 +126,7 @@ function handleChangePassword(e) {
     showToast('Password changed ✓', 'success');
 }
 
-// ===== P5.4 — Reset CRM Data =====
+// ===== Reset CRM Data =====
 
 document.getElementById('resetDataBtn').addEventListener('click', handleResetData);
 

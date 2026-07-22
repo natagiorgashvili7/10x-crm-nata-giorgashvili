@@ -12,7 +12,7 @@
 <body>
     <script src="js/guard.js"></script>
 <!-- clients page structure -->
-    <header id="page-content">
+    <section id="page-content">
         <div class="clients_header">
             <h1>Clients</h1>
             <button id="addClientBtn" class="btn_primary">+ Add Client</button>
@@ -37,10 +37,10 @@
         <div id="clientsList" class="clients_list">
             <!-- loading / error / cards injected here by clients.js -->
         </div>
-    </header>
+    </section>
 
     <!-- Add Client Modal -->
-    <main id="addClientModal" class="modal_overlay hidden">
+    <section id="addClientModal" class="modal_overlay hidden">
         <section class="modal_box">
             <div class="modal_header">
                 <h3>Add New Client</h3>
@@ -83,7 +83,7 @@
                 <button type="submit" class="btn_primary full_width">Add Client</button>
             </form>
         </section>
-    </main>
+    </section>
     <!-- Client Details Modal-->
     <div id="clientDetailsModal" class="modal_overlay hidden">
         <div class="modal_box">

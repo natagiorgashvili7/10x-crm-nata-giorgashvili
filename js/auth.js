@@ -1,5 +1,4 @@
 // ===== Signup form logic =====
-
 const signupForm = document.getElementById('signupForm');
 
 if (signupForm) {
@@ -167,7 +166,7 @@ function showToast(message, type) {
 
     container.appendChild(toast);
 
-    setTimeout(() => {
+    setTimeout(() => { 
         toast.remove();
     }, 3000);
 }
