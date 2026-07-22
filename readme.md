@@ -25,7 +25,7 @@
 5. No build step or dependencies are required — this is pure vanilla JS/CSS
 
 ## Live Demo
-
+https://10x-crm-nata-giorgashvili.vercel.app/
 
 ## Test Account
 No pre-seeded account exists (all data is stored in your own browser's localStorage). Please register a new account via the Sign Up page — this takes under a minute and requires no email verification.
