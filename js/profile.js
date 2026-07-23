@@ -1,6 +1,5 @@
 // ===== Profile page logic =====
 // Self-contained: defines its own showError/clearError/showToast so this
-// page doesn't depend on auth.js (which isn't loaded here).
 
 function getCurrentUser() {
     const session = JSON.parse(localStorage.getItem('crm_session'));

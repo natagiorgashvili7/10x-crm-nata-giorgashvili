@@ -202,6 +202,7 @@
 .app_sidebar {
   background: var(--bg-sidebar);
   border-right: 1px solid var(--border-color);
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   padding: 1.5rem 1rem;
@@ -224,17 +225,19 @@
 }
 .app_sidebar .sidebar_logo {
   margin-bottom: 2rem;
+  text-decoration: none;
 }
 @media (max-width: 1024px) {
   .app_sidebar .sidebar_logo {
     display: none;
   }
 }
-.app_sidebar .sidebar_logo h2 {
+.app_sidebar .sidebar_logo a {
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   color: #2563eb;
   margin: 0;
+  text-decoration: none;
 }
 .app_sidebar .sidebar_logo p {
   font-size: 12px;
@@ -244,6 +247,7 @@
 .app_sidebar .sidebar_nav {
   display: flex;
   flex-direction: column;
+  text-decoration: none;
   gap: 4px;
   flex: 1;
 }
@@ -275,6 +279,7 @@
   }
   .app_sidebar .sidebar_nav .nav_link .nav_icon {
     font-size: 20px;
+    text-decoration: none;
   }
 }
 .app_sidebar .sidebar_nav .nav_link:hover {
@@ -1006,6 +1011,7 @@
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 1.5rem;
+  margin: 5px;
 }
 @media (max-width: 640px) {
   .profile_card {
@@ -1023,6 +1029,7 @@
   color: var(--text-main);
   border: 1px solid var(--border-color);
   font-size: 16px;
+  padding: 10px;
 }
 @media (min-width: 641px) {
   .profile_card .each_form_input input {

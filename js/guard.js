@@ -2,7 +2,7 @@
 
 function checkAuthGuard() {
     const session = localStorage.getItem('crm_session');
-    const currentPage = window.location.pathname.split('/').pop();
+     const currentPage = window.location.pathname.split('/').pop();
 
     const protectedPages = ['dashboard.html', 'clients.html', 'profile.html'];
     const publicAuthPages = ['index.html', 'signup.html'];

@@ -17,7 +17,7 @@ function renderShell() {
     sidebar.className = 'app_sidebar';
     sidebar.innerHTML = `
         <div class="sidebar_logo">
-            <h2>10X CRM</h2>
+            <a href="dashboard.html">10X CRM</a>
             <p>Sales Management</p>
         </div>
         <nav class="sidebar_nav">
