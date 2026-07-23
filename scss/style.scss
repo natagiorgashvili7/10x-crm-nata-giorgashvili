@@ -105,7 +105,7 @@ $font-main: "Josefin Sans", sans-serif;
                     padding: 10px;
                     border: 1px solid $color-border;
                     border-radius: 10px;
-                    font-size: 16px; // 16px minimum prevents iOS auto-zoom on focus
+                    font-size: 16px;
                     outline: none;
                     transition: .3s;
 
@@ -123,9 +123,24 @@ $font-main: "Josefin Sans", sans-serif;
                     }
                     
                 }
+                .password_strength {
+                    font-size: 0.8rem;
+                    font-weight: 500;
+                    min-height: 1rem;
+                    margin: 5px;
+
+                    &.weak {
+                        color: #e63946;
+                    }
+                    &.medium {
+                        color: #f4a300;
+                    }
+                    &.strong {
+                        color: #2a9d8f;
+                    }
+                }
 
                 .error-text {
-                    margin-top: 5px;
                     color: $color-error;
                     font-size: 13px;
                     display: none;

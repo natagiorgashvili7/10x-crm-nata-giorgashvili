@@ -107,8 +107,22 @@
 .sign_up .sign_up_section .sign_up_form .each_form_input input.input-error {
   border: 2px solid #ef4444 !important;
 }
+.sign_up .sign_up_section .sign_up_form .each_form_input .password_strength {
+  font-size: 0.8rem;
+  font-weight: 500;
+  min-height: 1rem;
+  margin: 5px;
+}
+.sign_up .sign_up_section .sign_up_form .each_form_input .password_strength.weak {
+  color: #e63946;
+}
+.sign_up .sign_up_section .sign_up_form .each_form_input .password_strength.medium {
+  color: #f4a300;
+}
+.sign_up .sign_up_section .sign_up_form .each_form_input .password_strength.strong {
+  color: #2a9d8f;
+}
 .sign_up .sign_up_section .sign_up_form .each_form_input .error-text {
-  margin-top: 5px;
   color: #ef4444;
   font-size: 13px;
   display: none;

@@ -1,8 +1,56 @@
 // ===== Signup form logic =====
+
 const signupForm = document.getElementById('signupForm');
 
 if (signupForm) {
     signupForm.addEventListener('submit', handleSignup);
+}
+
+// ===== Password strength indicator (live, as the user types) =====
+
+const passwordInput = document.getElementById('password');
+if (passwordInput) {
+    passwordInput.addEventListener('input', () => {
+        updatePasswordStrength(passwordInput.value);
+    });
+}
+
+function updatePasswordStrength(password) {
+    const strengthEl = document.getElementById('passwordStrengthText');
+    if (!strengthEl) return;
+
+    if (password.length === 0) {
+        strengthEl.textContent = '';
+        strengthEl.className = 'password_strength';
+        return;
+    }
+
+    const hasLetter = /[a-zA-Z]/.test(password);
+    const hasDigit = /[0-9]/.test(password);
+    const hasSpecial = /[^a-zA-Z0-9]/.test(password);
+    const isLongEnough = password.length >= 8;
+    const isLonger = password.length >= 12;
+
+    let score = 0;
+    if (isLongEnough) score++;
+    if (hasLetter && hasDigit) score++;
+    if (hasSpecial) score++;
+    if (isLonger) score++;
+
+    let level, label;
+    if (score <= 1) {
+        level = 'weak';
+        label = 'Weak password';
+    } else if (score <= 2) {
+        level = 'medium';
+        label = 'Medium strength';
+    } else {
+        level = 'strong';
+        label = 'Strong password';
+    }
+
+    strengthEl.textContent = label;
+    strengthEl.className = `password_strength ${level}`;
 }
 
 function handleSignup(e) {
@@ -166,7 +214,7 @@ function showToast(message, type) {
 
     container.appendChild(toast);
 
-    setTimeout(() => { 
+    setTimeout(() => {
         toast.remove();
     }, 3000);
 }
