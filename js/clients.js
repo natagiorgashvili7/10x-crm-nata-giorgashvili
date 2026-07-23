@@ -1,5 +1,43 @@
 //Clients page: load + render
 
+// ===== Shared helpers =====
+// clients.html does not load auth.js, so these were previously undefined
+// on this page (ReferenceError on every Add Client / Delete Client /
+// Reminder call). Defined locally here, same pattern as profile.js.
+
+function showError(fieldId, message) {
+    const input = document.getElementById(fieldId);
+    const errorEl = document.getElementById(fieldId + 'Error');
+
+    input.classList.add('input-error');
+    errorEl.textContent = message;
+    errorEl.classList.add('visible');
+}
+
+function clearError(fieldId) {
+    const input = document.getElementById(fieldId);
+    const errorEl = document.getElementById(fieldId + 'Error');
+
+    input.classList.remove('input-error');
+    errorEl.textContent = '';
+    errorEl.classList.remove('visible');
+}
+
+function showToast(message, type) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
+
 const clientsListEl = document.getElementById('clientsList');
 
 const STATUS_CLASSES = {
