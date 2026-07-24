@@ -30,7 +30,7 @@
 
 ## Entry 4 — Building the Clients Page (API Integration)
 **Goal:** Implement Day 4–6: loading clients from DummyJSON, caching in localStorage, and adding search/filter/sort.
-**Prompt:** "lets do it day 4, 5 and 6 fully. tell me codes where should i add this to work and which day is it"
+**Prompt:** "lets do it day 4, 5. tell me codes where should i add this to work and which day is it"
 **Tool:** Claude (Sonnet)
 **Result:** Used, with one correction. I noticed the status dropdown didn't visually match the color-coded badges from earlier days until I specifically re-applied the badge CSS classes to the `<select>` element in Day 6.
 **What I learned:** `.filter()`, `.find()`, and `.sort()` all return new arrays/values instead of mutating the original — this is why `getVisibleClients()` could safely apply search/filter/sort without ever corrupting the actual data stored in `crm_clients`.

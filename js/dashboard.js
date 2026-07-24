@@ -1,4 +1,4 @@
-// ===== Dashboard page logic (Day 7, P3) =====
+// ===== Dashboard page logic =====
 
 const STATUS_CLASSES_DASH = {
     Lead: 'badge_lead',

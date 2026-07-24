@@ -31,4 +31,4 @@ https://10x-crm-nata-giorgashvili.vercel.app/
 No pre-seeded account exists (all data is stored in your own browser's localStorage). Please register a new account via the Sign Up page — this takes under a minute and requires no email verification.
 
 ## Credits
-Built by Nata Giorgashvili as an exam project. Development was supported by Claude (Anthropic) for planning, debugging, and code review — see `ai-log.md` for details on how AI was used throughout the project.
+Built by Nata Giorgashvili as an exam project. Development was supported by Claude for planning, debugging, and code review — see `ai-log.md` for details on how AI was used throughout the project.
